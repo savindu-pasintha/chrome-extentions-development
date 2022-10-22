@@ -1,0 +1,9 @@
+html body{
+    background: url(https://spasintha.herokuapp.com/static/media/self2.86d569a5d935b5232d54.jpg);
+    width: 350px;
+    height: auto;
+    background-position: center;
+    background-size: cover;
+    background-clip: inherit;
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,29 @@
+{
+
+    "manifest_version": 3,
+    "name": "backgroundChange",
+    "version": "1.0",
+    "description" :"Add a custom background for the google home page.",
+    "icons":{
+        "16":"./images/self2_16x16.png",
+        "48":"./images/self2_1_48x48.png",
+        "128":"./images/self2_2_128x128.png"
+    },
+    "page_action":{
+        "default_action":{
+            "16":"./images/self2_16x16.png",
+            "48":"./images/self2_1_48x48.png",
+            "128":"./images/self2_2_128x128.png"
+        }
+    },
+    "content_scripts":[{
+        "matches":["<all_urls>"],
+        "js":["main.js"],
+        "css":["main.css"]
+    }],
+    "browser_action": {
+        "default_icon": "./images/self2_1_48x48.png",
+        "default_title":"savindu pasintha",
+        "default_popup":"popup.html"
+    }
+}
