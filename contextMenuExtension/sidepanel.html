@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat Interface</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 15px;
+      background-color: #eef2f7; /* Soft background color */
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      box-sizing: border-box;
+      color: #333;
+    }
+    #chat-container {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 15px;
+      margin-bottom: 15px;
+      background-color: #ffffff;
+      border-radius: 12px; /* More rounded corners */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center content horizontally */
+    }
+    .message {
+      margin-bottom: 12px;
+      padding: 10px 15px;
+      border-radius: 10px; /* Rounded message bubbles */
+      max-width: 75%; /* Limit message width */
+      word-wrap: break-word; /* Ensure long words break */
+      line-height: 1.5;
+    }
+    .user-message {
+      background-color: #007bff; /* Primary blue for user messages */
+      color: white;
+      align-self: flex-end; /* Align to the right */
+      border-bottom-right-radius: 2px; /* Slight asymmetry */
+    }
+    .bot-message {
+      background-color: #f8f9fa; /* Light grey for bot messages */
+      color: #333;
+      align-self: flex-start; /* Align to the left */
+      border-bottom-left-radius: 2px; /* Slight asymmetry */
+    }
+    #input-container {
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    #chat-input {
+      flex-grow: 1;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px; /* Rounded input field */
+      margin-right: 10px;
+      font-size: 1rem;
+      outline: none; /* Remove outline on focus */
+      background-color: #f8f9fa; /* Match bot message background */
+    }
+    #chat-input::placeholder {
+      color: #aaa;
+    }
+    #send-button {
+      padding: 10px 20px;
+      background-color: #007bff; /* Primary blue */
+      color: white;
+      border: none;
+      border-radius: 8px; /* Rounded button */
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.2s ease;
+    }
+    #send-button:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+    /* Scrollbar styling (optional, for better aesthetics) */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #aaa;
+    }
+    /* Loading SVG styles */
+    #loading-svg {
+      display: none; /* Hidden by default */
+      width: 50px; /* Example size */
+      height: 50px; /* Example size */
+      margin: 10px auto; /* Center it */
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container">
+    <svg id="loading-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="50" height="50">
+      <circle fill="red" stroke="red" stroke-width="15" r="15" cx="40" cy="100">
+        <animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.4"></animate>
+      </circle>
+      <circle fill="red" stroke="red" stroke-width="15" r="15" cx="100" cy="100">
+        <animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.2"></animate>
+      </circle>
+      <circle fill="red" stroke="red" stroke-width="15" r="15" cx="160" cy="100">
+        <animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="0"></animate>
+      </circle>
+    </svg>
+  </div>
+  <div id="input-container">
+    <input type="text" id="chat-input" placeholder="Type your message...">
+    <button id="send-button-icon" aria-label="Send message" style="background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; margin-left: 10px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px" style="color: #007bff;">
+        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+      </svg>
+    </button>
+  </div>
+  <script src="sidepanel.js"></script>
+</body>
+</html>
