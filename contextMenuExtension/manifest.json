@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Context Menu Item",
+  "name": "Ask any thing",
   "version": "1.0",
   "description": "Adds a new item to the context menu.",
   "permissions": ["contextMenus", "activeTab", "scripting", "sidePanel"],
